@@ -1,9 +1,10 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, Query } from '@nestjs/common';
 import { CharactersService } from './characters.service'
 
 @Controller('characters')
 export class CharactersController {
     constructor(private readonly charactersService: CharactersService) {}
+    
     @Get()
     getCharacters(): any {
         return this.charactersService.getAllCharacters();
@@ -24,8 +25,13 @@ export class CharactersController {
         return this.charactersService.getCharacterByMass(charMass);
     }
 
+    @Get('hair-color/:hair_color')
+    getCharacterByHairColor(@Param('hair_color') charHairColor: string): any {
+        return this.charactersService.getCharacterByHairColor(charHairColor);
+    }
+
     @Get('skin-color/:skin_color')
-    getCharacterByHairColor(@Param('skin_color') charSkinColor: string): any {
+    getCharacterBySkinColor(@Param('skin_color') charSkinColor: string): any {
         return this.charactersService.getCharacterBySkinColor(charSkinColor);
     }
 
@@ -47,5 +53,15 @@ export class CharactersController {
     @Get('categories/:name')
     getCategoriesByCharacterName(@Param('name') charName: string): any {
         return this.charactersService.getCategoriesByCharacterName(charName);
+    }
+
+    @Get('categories')
+    getAllCharWithOnlyCategories(): any {
+        return this.charactersService.getAllCharWithOnlyCategories()
+    }
+
+    @Get('search')
+    getTextSearchResult(@Query('query') query: string): any {
+        return this.charactersService.getMatchedCharWithCatByQuery(query);
     }
 }
