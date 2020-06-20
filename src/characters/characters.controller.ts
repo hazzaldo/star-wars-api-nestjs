@@ -43,4 +43,9 @@ export class CharactersController {
     getCharacterByGender(@Param('gender') charGender: string): any {
         return this.charactersService.getCharacterByGender(charGender);
     }
+
+    @Get('categories/:name')
+    getCategoriesByCharacterName(@Param('name') charName: string): any {
+        return this.charactersService.getCategoriesByCharacterName(charName);
+    }
 }
