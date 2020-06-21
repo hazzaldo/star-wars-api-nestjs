@@ -1,4 +1,26 @@
-# VAUBAN Back End Test
+# VAUBAN Backend API Test
+
+## Star Wars APIs
+A collection of APIs to provide access to the Star Wars characters information.
+
+Refer to the Postman documentation: https://documenter.getpostman.com/view/1139076/Szzn7woE?version=latest 
+
+It contains the following requests:
+
+* Get all characters
+* Get character by name (category)
+* Get character by height (category)
+* Get character by mass (category)
+* Get character by hair color (category)
+* Get character by skin color (category)
+* Get character by eye color (category)
+* Get character by birth (category)
+* Get character by gender (category)
+* Get only the categories by character name
+* Get only the categories of all characters
+* Get all matched characters by text search (search query)
+
+Please note, the domain name for all API endpoints is based on the scenario where the server is running locally on your local machine. Hence the domain name is `http://localhost:3000`. Otherwise this would be different based on the domain name used.
 
 ## Stack
 
